@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scroll to Element Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .scroll-container {
+            height: 200px;
+            overflow-y: scroll;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .scroll-target {
+            padding: 20px;
+            margin-bottom: 10px;
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+        }
+        .tall {
+            height: 150px;
+        }
+        .short {
+            height: 50px;
+        }
+        .text-content {
+            background-color: #d1e7dd;
+        }
+        .image-content {
+            background-color: #f8d7da;
+        }
+        .mixed-content {
+            background-color: #fff3cd;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="jquery.scrollToElement.js"></script>
+    <script>
+        $(document).ready(function() {
+            var $scrollContainer = $('.scroll-container').scrollToElement();
+
+            $('#scrollToElement1').on('click', function() {
+                $scrollContainer.scrollToElement({
+                    elementSelector: '[data-element-id="1"]',
+                    scrollDuration: 800,
+                    onElementNotFound: function() {
+                        alert('Element not found.');
+                    }
+                });
+            });
+            $('#scrollToElement5').on('click', function() {
+                $scrollContainer.scrollToElement({
+                    elementSelector: '[data-element-id="5"]',
+                    scrollDuration: 600,
+                    onElementNotFound: function() {
+                        alert('Element not found.');
+                    }
+                });
+            });
+            $('#scrollToElement10').on('click', function() {
+                $scrollContainer.scrollToElement({
+                    elementSelector: '[data-element-id="10"]',
+                    scrollDuration: 400,
+                    onElementNotFound: function() {
+                        alert('Element not found.');
+                    }
+                });
+            });
+            $('#scrollToElement15').on('click', function() {
+                $scrollContainer.scrollToElement({
+                    elementSelector: '[data-element-id="15"]',
+                    scrollDuration: 1000,
+                    onElementNotFound: function() {
+                        alert('Element not found.');
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <h1>Scroll to Element Test</h1>
+    <!-- Buttons to trigger scrolling to specific elements -->
+    <button id="scrollToElement1">Scroll to Element 1</button>
+    <button id="scrollToElement5">Scroll to Element 5</button>
+    <button id="scrollToElement10">Scroll to Element 10</button>
+    <button id="scrollToElement15">Scroll to Element 15</button>
+    <div class="scroll-container">
+        <!-- Elements with different content types and heights -->
+        <div class="scroll-target text-content" data-element-id="1">Element 1: This is a text element.</div>
+        <div class="scroll-target image-content tall" data-element-id="2">Element 2: <img src="https://via.placeholder.com/150" alt="Placeholder Image"></div>
+        <div class="scroll-target mixed-content short" data-element-id="3">Element 3: <p>Text and</p><img src="https://via.placeholder.com/100" alt="Placeholder Image"></div>
+        <div class="scroll-target text-content tall" data-element-id="4">Element 4: This is a tall text element.</div>
+        <div class="scroll-target image-content short" data-element-id="5">Element 5: <img src="https://via.placeholder.com/100" alt="Placeholder Image"></div>
+        <div class="scroll-target mixed-content" data-element-id="6">Element 6: <p>Some text and an image</p><img src="https://via.placeholder.com/50" alt="Placeholder Image"></div>
+        <div class="scroll-target text-content short" data-element-id="7">Element 7: This is a short text element.</div>
+        <div class="scroll-target image-content tall" data-element-id="8">Element 8: <img src="https://via.placeholder.com/200" alt="Placeholder Image"></div>
+        <div class="scroll-target mixed-content" data-element-id="9">Element 9: <p>Mixed content here</p><img src="https://via.placeholder.com/75" alt="Placeholder Image"></div>
+        <div class="scroll-target text-content tall" data-element-id="10">Element 10: This is a tall text element.</div>
+        <div class="scroll-target image-content short" data-element-id="11">Element 11: <img src="https://via.placeholder.com/100" alt="Placeholder Image"></div>
+        <div class="scroll-target mixed-content" data-element-id="12">Element 12: <p>Some text and an image</p><img src="https://via.placeholder.com/50" alt="Placeholder Image"></div>
+        <div class="scroll-target text-content short" data-element-id="13">Element 13: This is a short text element.</div>
+        <div class="scroll-target image-content tall" data-element-id="14">Element 14: <img src="https://via.placeholder.com/200" alt="Placeholder Image"></div>
+        <div class="scroll-target mixed-content" data-element-id="15">Element 15: <p>Mixed content here</p><img src="https://via.placeholder.com/75" alt="Placeholder Image"></div>
+    </div>
+</body>
+</html>
